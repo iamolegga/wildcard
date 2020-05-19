@@ -24,6 +24,7 @@ func TestMatch(t *testing.T) {
 		Case{"acbdbc", "a*bc", true},
 		Case{"aaaabbbbcccc", "a*", true},
 		Case{"a", "*aab", false},
+		Case{"a", "a*", true},
 	}
 
 	for _, c := range cases {
