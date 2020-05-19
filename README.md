@@ -1,5 +1,6 @@
 # wildcard
 
+[![GoDoc](https://godoc.org/github.com/iamolegga/wildcard?status.svg)](https://godoc.org/github.com/iamolegga/wildcard)
 [![Maintainability](https://api.codeclimate.com/v1/badges/50abc2cef12094116686/maintainability)](https://codeclimate.com/github/iamolegga/wildcard/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/50abc2cef12094116686/test_coverage)](https://codeclimate.com/github/iamolegga/wildcard/test_coverage)
 [![Go Report Card](https://goreportcard.com/badge/github.com/iamolegga/wildcard)](https://goreportcard.com/report/github.com/iamolegga/wildcard)
