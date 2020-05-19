@@ -27,3 +27,9 @@ jobs:
               ./cc-test-reporter after-build --exit-code $?
             fi
           when: always
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - test
