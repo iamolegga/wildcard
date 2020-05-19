@@ -7,14 +7,14 @@ import (
 	"github.com/iamolegga/wildcard"
 )
 
-type Case struct {
-	value    string
-	pattern  string
-	expected bool
-}
-
 func TestMatch(t *testing.T) {
-	cases := []Case{
+	type testCase struct {
+		value    string
+		pattern  string
+		expected bool
+	}
+
+	cases := []testCase{
 		{"aa", "a", false},
 		{"aa", "*", true},
 		{"cb", "?a", false},
@@ -28,9 +28,11 @@ func TestMatch(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		if result := wildcard.Match(c.value, c.pattern); result != c.expected {
-			t.Errorf("%s : %s = %v", c.value, c.pattern, result)
-		}
+		t.Run(fmt.Sprintf("value: %s, pattern: %s", c.value, c.pattern), func(t *testing.T) {
+			if result := wildcard.Match(c.value, c.pattern); result != c.expected {
+				t.Errorf("expected: %v, got: %v", c.expected, result)
+			}
+		})
 	}
 }
 
