@@ -3,6 +3,9 @@ jobs:
   test:
     docker:
       - image: circleci/golang:latest
+        environment:
+          GO111MODULE: "on"
+    working_directory: /go/src/github.com/iamolegga/wildcard
     steps:
       - checkout
       - run:
@@ -19,13 +22,9 @@ jobs:
               ./cc-test-reporter before-build
             fi
             go test -v ./... -coverprofile c.out
-      - run:
-          name: Report
-          command: |
             if [ "$CIRCLE_BRANCH" = "master" ]; then
-              ./cc-test-reporter after-build --exit-code $?
+              ./cc-test-reporter after-build -t gocov -p $(go list -m) --exit-code $?
             fi
-          when: always
 
 workflows:
   version: 2
