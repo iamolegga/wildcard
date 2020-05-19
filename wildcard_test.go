@@ -15,16 +15,16 @@ type Case struct {
 
 func TestMatch(t *testing.T) {
 	cases := []Case{
-		Case{"aa", "a", false},
-		Case{"aa", "*", true},
-		Case{"cb", "?a", false},
-		Case{"adceb", "*a*b", true},
-		Case{"acdcb", "a*c?b", false},
-		Case{"abdbc", "a*bc", true},
-		Case{"acbdbc", "a*bc", true},
-		Case{"aaaabbbbcccc", "a*", true},
-		Case{"a", "*aab", false},
-		Case{"a", "a*", true},
+		{"aa", "a", false},
+		{"aa", "*", true},
+		{"cb", "?a", false},
+		{"adceb", "*a*b", true},
+		{"acdcb", "a*c?b", false},
+		{"abdbc", "a*bc", true},
+		{"acbdbc", "a*bc", true},
+		{"aaaabbbbcccc", "a*", true},
+		{"a", "*aab", false},
+		{"a", "a*", true},
 	}
 
 	for _, c := range cases {
