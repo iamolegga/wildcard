@@ -45,3 +45,34 @@ func ExampleMatch() {
 	// true
 	// false
 }
+
+func TestIsPattern(t *testing.T) {
+	type testCase struct {
+		value    string
+		expected bool
+	}
+
+	cases := []testCase{
+		{"foo", false},
+		{"*", true},
+		{"?", true},
+	}
+
+	for _, c := range cases {
+		t.Run(fmt.Sprintf("value: %s", c.value), func(t *testing.T) {
+			if result := wildcard.IsPattern(c.value); result != c.expected {
+				t.Errorf("expected: %v, got: %v", c.expected, result)
+			}
+		})
+	}
+}
+
+func ExampleIsPattern() {
+	fmt.Println(wildcard.IsPattern("f*"))
+	fmt.Println(wildcard.IsPattern("b?r"))
+	fmt.Println(wildcard.IsPattern("baz"))
+	// Output:
+	// true
+	// true
+	// false
+}

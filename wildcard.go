@@ -1,7 +1,9 @@
-// Package wildcard provides the single function to check wildcard matching
+// Package wildcard provides utils for working with wildcard matching
 package wildcard
 
-// Match - checks if provided value match wildcard pattern
+import "strings"
+
+// Match - check if provided value match wildcard pattern
 func Match(value, pattern string) bool {
 	i := 0
 	j := 0
@@ -31,4 +33,10 @@ func Match(value, pattern string) bool {
 	}
 
 	return j == len(pattern)
+}
+
+// IsPattern - check if provided value is a wildcard pattern,
+// i.e. it has special characters "*" or "?"
+func IsPattern(value string) bool {
+	return strings.ContainsAny(value, "*?")
 }
