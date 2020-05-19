@@ -1,8 +1,10 @@
-package wildcard
+package wildcard_test
 
 import (
 	"fmt"
 	"testing"
+
+	"github.com/iamolegga/wildcard"
 )
 
 type Case struct {
@@ -25,16 +27,16 @@ func TestMatch(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		if result := Match(c.value, c.pattern); result != c.expected {
+		if result := wildcard.Match(c.value, c.pattern); result != c.expected {
 			t.Errorf("%s : %s = %v", c.value, c.pattern, result)
 		}
 	}
 }
 
 func ExampleMatch() {
-	fmt.Println(Match("foo", "f*"))
-	fmt.Println(Match("bar", "b?r"))
-	fmt.Println(Match("baz", "az"))
+	fmt.Println(wildcard.Match("foo", "f*"))
+	fmt.Println(wildcard.Match("bar", "b?r"))
+	fmt.Println(wildcard.Match("baz", "az"))
 	// Output:
 	// true
 	// true
