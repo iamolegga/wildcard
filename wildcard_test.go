@@ -76,3 +76,9 @@ func ExampleIsPattern() {
 	// true
 	// false
 }
+
+func BenchmarkMatch(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		wildcard.Match("acdcab", "a*c?b")
+	}
+}

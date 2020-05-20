@@ -1,4 +1,10 @@
-// Package wildcard provides utils for working with wildcard matching
+// Package `wildcard` provides utils for working with a classic wildcard matching (only `?` and `*` are supported).
+//
+// `Match` function is a golang's adaptation of Java's O(1) space solution:
+//
+// 		https://www.programcreek.com/2014/06/leetcode-wildcard-matching-java/
+//
+// and ~ 3.37 times faster then standard `filepath.Match`.
 package wildcard
 
 import "strings"
